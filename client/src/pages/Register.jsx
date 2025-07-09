@@ -7,14 +7,14 @@ import './Register.css'; // or './Register.css'
 const API = import.meta.env.VITE_API_BASE_URL;
 
 function Register() {
-  const [email, setEmail] = useState('');
+  const [username, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${API}/auth/register`, { email, password });
+      await axios.post(`${API}/auth/register`, { username, password });
       navigate('/login');
     } catch (err) {
       alert(err.response?.data?.error || 'Registration failed');
@@ -27,7 +27,7 @@ function Register() {
       <form onSubmit={handleSubmit} className="auth-form">
         <input
           type="email"
-          value={email}
+          value={username}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           required
