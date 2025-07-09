@@ -17,7 +17,7 @@ const Login = () => {
       localStorage.setItem('token', res.data.token);
       const username = email.split("@")[0];
       sessionStorage.setItem("username", username);
-      navigate('/'); // 👈 Redirect to home which loads App.jsx with the Board
+      navigate("/board"); // 👈 Redirect to home which loads App.jsx with the Board
     } catch (err) {
       alert('Login failed: ' + (err.response?.data?.error || err.message));
     }

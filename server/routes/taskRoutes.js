@@ -5,7 +5,7 @@ import { emitActivity } from "../utils/socketManager.js";
 
 const router = express.Router();
 
-// get all tasks
+// gogiet all tasks
 router.get("/", protect, async (req, res) => {
 const tasks = await Task.find();
 res.json(tasks);
